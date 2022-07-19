@@ -131,7 +131,10 @@ net accounts /minpwage:0
 #Set minimum password length 12
 net accounts /minpwlen: 12
 ##Set must meet complexity requirements
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient" /v EnableMulticast /t REG_DWORD /d 0 /f
+secedit /export /cfg c:\secpol.cfg
+(GC C:\secpol.cfg) -Replace "PasswordComplexity = 0","PasswordComplexity = 1" | Out-File C:\secpol.cfg
+secedit /configure /db c:\windows\security\local.sdb /cfg c:\secpol.cfg /areas SECURITYPOLICY
+Remove-Item C:\secpol.cfg -Force
 
 ##Set lockout threshold
 net accounts /lockoutthreshold:5
@@ -150,8 +153,8 @@ REGA DD "HKLM:\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v Scr
 #Prevent changing the screen saver enabled
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v NoDispScrSavPage \t REG_DWORD /d 1 /f
 #Enable Bitlocker
-Enable-BitLocker -EncryptionMethod Aes128 -RecoveryKeyPath "D:\Recovery\" -RecoveryKeyProtector
-Enable-BitLocker -EncryptionMethod Aes128 -RecoveryKeyPath "E:\Recovery\" -RecoveryKeyProtector
+Enable-BitLocker -MountPoint "C:" -EncryptionMethod Aes128 -RecoveryKeyPath "D:\Recovery\" -RecoveryKeyProtector
+Enable-BitLocker -MountPoint "C:" -EncryptionMethod Aes128 -RecoveryKeyPath "E:\Recovery\" -RecoveryKeyProtector
 
 
 #Create Local User
