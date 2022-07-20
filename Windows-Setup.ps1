@@ -105,13 +105,16 @@ Write-Host -ForegroundColor Green "Enable .NET Framework"
 Enable-WindowsOptionalFeature -Online -FeatureName NetFx3 -All
 
 #Disable LLMNR
+Write-Host -ForegroundColor Green "Disabling LLMNR"
 REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient”
 REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient” /v ” EnableMulticast” /t REG_DWORD /d “0” /f
 
 #Disable NBT-NS
+Write-Host -ForegroundColor Green "Disabling NBT-NS"
 $regkey = "HKLM:SYSTEM\CurrentControlSet\services\NetBT\Parameters\Interfaces"
 Get-ChildItem $regkey |foreach { Set-ItemProperty -Path "$regkey\$($_.pschildname)" -Name NetbiosOptions -Value 2 -Verbose}
 
+Write-Host -ForegroundColor Green "Enabling SMB signing as always"
 #Enable SMB signing as 'always'
 $Parameters = @{
     RequireSecuritySignature = $True
@@ -122,6 +125,8 @@ $Parameters = @{
 Set-SmbServerConfiguration @Parameters
 
 #Set Group Policy options
+Write-Host -ForegroundColor Green "Setting Password Policy:"
+Write-Host -ForegroundColor Green "Password History:10 `nMaximum Password Age:Unlimited `nMinimum Password Age:0 `nMinimum Password Length: 12 `nMust Meet Complexity Requirements"
 ##Enforce password history
 net accounts /uniquepw:10
 ##Set maximum password age
@@ -137,12 +142,16 @@ secedit /configure /db c:\windows\security\local.sdb /cfg c:\secpol.cfg /areas S
 Remove-Item C:\secpol.cfg -Force
 
 ##Set lockout threshold
+Write-Host -ForegroundColor Green "Setting Account Security Policy:"
+Write-Host -ForegroundColor Green "Account Lockout Threshold: 5 `nAccount Lockout Duration: 30 minutes `nAccount Lockout Counter Restet: 30 minutes"
 net accounts /lockoutthreshold:5
 ##Set account lockout duration
 net accounts /lockoutduration:30
 #Reset acccount lockout counter
 net accounts /lockoutwindow:30
 #Enable screen saver
+Write-Host -ForegroundColor Green "Further Hardening:"
+Write-Host -ForegroundColor Green "`nScreen Saver Enabled `nScreen Saver Timeout: 15 minutes `nSpecific Screen Saver Set `nPassword Protected Screen Saver `nSceen Saver Cannot Be Changed"
 REG DEL "HKLM\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop" /v ScreenSaveActive /f
 #Set screen saver timeout 900
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop" /v ScreenSaveTimeOut /t REG_SZ /d 900 /f
@@ -153,6 +162,7 @@ REGA DD "HKLM:\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v Scr
 #Prevent changing the screen saver enabled
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v NoDispScrSavPage \t REG_DWORD /d 1 /f
 #Enable Bitlocker
+Write-Host -ForegroundColor Green "Enabled Bitlocker. Key saved to External Device."
 Enable-BitLocker -MountPoint "C:" -EncryptionMethod Aes128 -RecoveryKeyPath "D:\Recovery\" -RecoveryKeyProtector
 Enable-BitLocker -MountPoint "C:" -EncryptionMethod Aes128 -RecoveryKeyPath "E:\Recovery\" -RecoveryKeyProtector
 
@@ -166,6 +176,7 @@ Add-LocalGroupMember -Group "Administrators" -Member $UserName
 ##########Essential Tweaks##########
 
 #Set Reg key to lock to 21H2
+Write-Host -ForegroundColor Green "Locking Windows 11 Upgrade for Win10 Devices"
 REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /f /v TargetReleaseVersion /t Reg_DWORD /d 1
 REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /f /v TargetReleaseVersionInfo /t REG_SZ /d 21H2
 
