@@ -130,6 +130,7 @@ The following is executed:
 
 1. If you don't already have it, Go to the Microsoft Store on a Windows Machine and Install the Windows Configuration Designer.
 2. In Windows Configuration Designer, Select Advanced Provisioning.
+<img src="https://raw.githubusercontent.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_8.png?sanitize=true&raw=true" />
 3. Enter a name, project folder (I use the default for almost all selections), enter a description if you like, click 'Next'.
 4. Select 'All Windows desktop editions', and 'Next'.
 5. Don't import a provisioning package, just click 'Finish'.
