@@ -129,24 +129,41 @@ The following is executed:
 ### Building the PPKG with Windows Configuation Designer
 
 1. If you don't already have it, Go to the Microsoft Store on a Windows Machine and Install the Windows Configuration Designer.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_22.png?raw=true" />
 2. In Windows Configuration Designer, Select Advanced Provisioning.
-<img src="https://raw.githubusercontent.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_8.png?sanitize=true&raw=true" />
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_8.png?raw=true" />
 3. Enter a name, project folder (I use the default for almost all selections), enter a description if you like, click 'Next'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_9.png?raw=true" />
 4. Select 'All Windows desktop editions', and 'Next'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_10.png?raw=true" />
 5. Don't import a provisioning package, just click 'Finish'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11.png?raw=true" />
 6. In the left pane, expand 'Runtime settings', expand 'ProvisioningCommands', and 'PrimaryContext', highlight 'Command'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_12.png?raw=true" />
 7. In the middle pane, nter a name for your command, click 'Add', notice you have a new command in the list.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_13.png?raw=true" />
 8. Back in the left pane, you'll have some new options under Install (or your command name). We're only concerned about 'CommandFile' and 'CommandLine'. Browse for and select your iteration of the 'install.ps1' file. Then enter `.\install.ps1` into the 'CommandLine' selection. This is the command you would use to run the file from PowerShell.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_14.png?raw=true" />
 9. At the top right, select 'Export', and 'Provisioning Package'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_15.png?raw=true" />
 10. Choose a name and click 'Next'. If you ever re-build your ppkg (provisoning package) the minor number in the version will iterate automatically.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_16.png?raw=true" />
 11. You can encrypt the package with a password or sign it with a certificate if you have one. I don't use either of these options so that's up to you.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_17.png?raw=true" />
 12. Select a folder to save the package if you want to export it somewhere else.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_18.png?raw=true" />
 13. Select 'Build' after reviewing your settings
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_19.png?raw=true" />
 14. DON'T CLICK FINISH. Click the path in the 'Output Location'. This will open your File Explorer.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_20.png?raw=true" />
 15. Insert a blank USB device into your computer. Copy the <PPKGNAME>.cat and <PPKGNAME>.ppkg to the usb.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_21.png?raw=true" />
    
 ### Using the PPKG during installation
 
 1. When you first boot a computer to provison, you're greeted with the 'Select Your Region' page. Insert the USB that contains the PPKG, enter a password if you used one and let it run, it will reboot a couple times.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Windows-10-Creators-Update-Setup-1.jpg" />
+OR
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/windows-11-setup-screen-country-region-mrnoob-768x578.png" />
 2. There will be some, but very little user interaction needed. You will need to enter the computer name, reset the admin password, and create a local user (if you left this code uncommented).
-3. The computer will reboot after the script runs.
+3. The computer will reboot after the script finishes.
