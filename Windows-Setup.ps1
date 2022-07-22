@@ -136,6 +136,12 @@ net accounts /minpwage:0
 #Set minimum password length 12
 net accounts /minpwlen: 12
 ##Set must meet complexity requirements
+<# This part is a bit weird. It does the following:
+Exports the GPO config to root of C:
+Edits one line to enable Password Complexity
+Imports itself into GPO
+Deletes the exported file
+#>
 secedit /export /cfg c:\secpol.cfg
 (GC C:\secpol.cfg) -Replace "PasswordComplexity = 0","PasswordComplexity = 1" | Out-File C:\secpol.cfg
 secedit /configure /db c:\windows\security\local.sdb /cfg c:\secpol.cfg /areas SECURITYPOLICY
@@ -187,6 +193,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 #Install Java
     choco install jre8 -y
+
+#Install Firefox
+    choco install firefox -y
 
 #Install Chrome
     choco install googlechrome -y --ignore-checksums
