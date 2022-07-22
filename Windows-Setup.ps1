@@ -209,7 +209,7 @@ Write-Warning "Errors past this point indicate one of two things `n1.The service
 Start-Sleep 15
 
     Write-Host  -ForegroundColor Green "Running O&O Shutup with Recommended Settings"
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/smdjames/SMDDeploymentAssets/main/ooshutup10.cfg" -Outfile "C:\Support\Scripts\ooshutup10.cfg"
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/cole-bermudez/Windows-Deployment/main/ooshutup10.cfg" -Outfile "C:\Support\Scripts\ooshutup10.cfg"
     Invoke-WebRequest -Uri "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -outFile "C:\Support\Scripts\OOSU10.exe"
     cd C:\Support\Scripts
     ./OOSU10.exe ooshutup10.cfg /quiet
