@@ -167,3 +167,7 @@ OR
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/windows-11-setup-screen-country-region-mrnoob-768x578.png" />
 2. There will be some, but very little user interaction needed. You will need to enter the computer name, reset the admin password, and create a local user (if you left this code uncommented).
 3. The computer will reboot after the script finishes.
+
+## License
+
+- [GNU General Public License (GPL) v3](https://www.gnu.org/licenses/gpl-3.0.en.html)
