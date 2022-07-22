@@ -1,8 +1,12 @@
 # Windows-Deployment
 
-### Overview
+## Overview
+
+### Description
 
 This repo is a collection of scripts that work in conjunction to provision Windows 10/11 machines.
+The whole process of provisioning takes about 20 minutes from OOBE to rebooting after completion.
+This does use Windows Configuration Designer from the Windows Store.
 This project is FOSS and licensed under the GPL 3 license. Contributions and collaboration is always appreciated.
 
 These scripts configure a lot within Windows and are very malleable to suit any need. These scripts will strip out a lot of vendor installed software like Spotify, MSOffice 365, Netflix and all the other XApps that come pre-installed. These programs do not exist in the base, fresh Windows install.
@@ -78,4 +82,70 @@ The following is executed:
         - Chrome
         - Adobe Reader
         - 7-zip
- - 
+- Enables RDP
+- Runs O&O Shutup with a custom CFG file
+- Disables Telemetry
+- Diables Wi-Fi Sense
+- Diables Application Suggestions
+- Disables Comsumer Features (Ads)
+- Disables Location Tracking
+- Disables Maps updates
+- Diables Feedback
+- Disables Tailored Experiences
+- Disables Adbertising ID
+- Disables Error reporting
+- Disables Windows Update P2P
+- Disables Diagnostics Tracking
+- Disables WAP Push
+- Disables Homegroup
+- Disables Remote Assistance
+- Disables Superfetch
+- Disables Hibernation
+- Shows Task Manager Details by default
+- Shows File Explorer Details
+- Hides Task View
+- Hides People Icon
+- Enables NumLock on Startup
+- Changes default File Explorer view to This PC
+- Hides 3D objects icon from This PC
+- Installs Windows Media Player
+- Disables News and Interests
+- Removes AutoLogger file
+- Turns 68 services from Automatic to Manual (can be expanded to 86. See lines 400-487)
+- Disables Bing Search in Start Menu
+- Disables Cortana
+- Hides Search
+- Removes Start Menu Tiles
+- Removes 89 XApps (can be expanded to 95 XApps. See lines 578-676)
+- Disables drivers through Windows Update
+- Disables Windows Update Automatic Restart (This change and the last means Windows will only get security updates).
+- Disables Action Center
+- Adjusts visual effects for performance
+- Shows Tray Icons
+- Reboots the computer
+
+## Usage
+
+### Building the PPKG with Windows Configuation Designer
+
+1. If you don't already have it, Go to the Microsoft Store on a Windows Machine and Install the Windows Configuration Designer.
+2. In Windows Configuration Designer, Select Advanced Provisioning.
+3. Enter a name, project folder (I use the default for almost all selections), enter a description if you like, click 'Next'.
+4. Select 'All Windows desktop editions', and 'Next'.
+5. Don't import a provisioning package, just click 'Finish'.
+6. In the left pane, expand 'Runtime settings', expand 'ProvisioningCommands', and 'PrimaryContext', highlight 'Command'.
+7. In the middle pane, nter a name for your command, click 'Add', notice you have a new command in the list.
+8. Back in the left pane, you'll have some new options under Install (or your command name). We're only concerned about 'CommandFile' and 'CommandLine'. Browse for and select your iteration of the 'install.ps1' file. Then enter `.\install.ps1` into the 'CommandLine' selection. This is the command you would use to run the file from PowerShell.
+9. At the top right, select 'Export', and 'Provisioning Package'.
+10. Choose a name and click 'Next'. If you ever re-build your ppkg (provisoning package) the minor number in the version will iterate automatically.
+11. You can encrypt the package with a password or sign it with a certificate if you have one. I don't use either of these options so that's up to you.
+12. Select a folder to save the package if you want to export it somewhere else.
+13. Select 'Build' after reviewing your settings
+14. DON'T CLICK FINISH. Click the path in the 'Output Location'. This will open your File Explorer.
+15. Insert a blank USB device into your computer. Copy the <PPKGNAME>.cat and <PPKGNAME>.ppkg to the usb.
+   
+### Using the PPKG during installation
+
+1. When you first boot a computer to provison, you're greeted with the 'Select Your Region' page. Insert the USB that contains the PPKG, enter a password if you used one and let it run, it will reboot a couple times.
+2. There will be some, but very little user interaction needed. You will need to enter the computer name, reset the admin password, and create a local user (if you left this code uncommented).
+3. The computer will reboot after the script runs.
