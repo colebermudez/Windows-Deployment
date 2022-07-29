@@ -140,7 +140,7 @@ The following is executed:
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11.png?raw=true" />
 6. In the left pane, expand 'Runtime settings', expand 'ProvisioningCommands', and 'PrimaryContext', highlight 'Command'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_12.png?raw=true" />
-7. In the middle pane, nter a name for your command, click 'Add', notice you have a new command in the list.
+7. In the middle pane, enter a name for your command, click 'Add', notice you have a new command in the list.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_13.png?raw=true" />
 8. Back in the left pane, you'll have some new options under Install (or your command name). We're only concerned about 'CommandFile' and 'CommandLine'. Browse for and select your iteration of the 'install.ps1' file. Then enter `.\install.ps1` into the 'CommandLine' selection. This is the command you would use to run the file from PowerShell.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_14.png?raw=true" />
