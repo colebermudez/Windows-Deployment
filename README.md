@@ -140,10 +140,10 @@ The following is executed:
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11.png?raw=true" />
 6. In the left pane, expand 'Runtime settings', expand 'ProvisioningCommands', and 'PrimaryContext', highlight 'Command'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_12.png?raw=true" />
-7. In the middle pane, nter a name for your command, click 'Add', notice you have a new command in the list.
+7. In the middle pane, enter a name for your command, click 'Add', notice you have a new command in the list.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_13.png?raw=true" />
-8. Back in the left pane, you'll have some new options under Install (or your command name). We're only concerned about 'CommandFile' and 'CommandLine'. Browse for and select your iteration of the 'install.ps1' file. Then enter `.\install.ps1` into the 'CommandLine' selection. This is the command you would use to run the file from PowerShell.
-<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_14.png?raw=true" />
+8. Back in the left pane, you'll have some new options under Install (or your command name). We're only concerned about 'CommandFile' and 'CommandLine'. Browse for and select your iteration of the 'install.ps1' file. Then enter `PowerShell -ExecutionPolicy Bypass -File .\install.ps1` into the 'CommandLine' selection. This is the command you would use to run the file from PowerShell.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_14_1.png?raw=true" />
 9. At the top right, select 'Export', and 'Provisioning Package'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_15.png?raw=true" />
 10. Choose a name and click 'Next'. If you ever re-build your ppkg (provisoning package) the minor number in the version will iterate automatically.
@@ -171,3 +171,7 @@ OR
 ## License
 
 - [GNU General Public License (GPL) v3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+## Special Thanks
+
+- [khaosnmt](https://github.com/khaosnmt)

@@ -51,7 +51,7 @@ Invoke-WebRequest "https://raw.githubusercontent.com/cole-bermudez/Windows-Deplo
 # Set admin user PasswordExpires to never
 Set-LocalUser -Name "admin" -PasswordNeverExpires 1
 
-# Disbale Privacy Settings after Deployment reboot
+# Disable Privacy Settings after Deployment reboot
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /v DisablePrivacyExperience /t REG_DWORD /d 1
 
 # Enable Autologon after deployment reboot
