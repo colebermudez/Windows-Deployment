@@ -64,7 +64,7 @@ The following is executed:
     * Password History of 10
     * Unlimited Maximum password age
     * Minimum password age of 0 days
-    * Minimum password length of 12 charcters
+    * Minimum password length of 12 characters
     * Password Complexity requriements must be met (Read the comment on this one at line 139)
     * Sets lockout threshold to 5 attemtps
     * Sets lockout counter to reset after 30 minutes. Lockout duration is also set to 30 minutes
