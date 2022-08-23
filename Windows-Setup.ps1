@@ -164,7 +164,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop" /v Scre
 #Set specific screensaver scrnsave.scr
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop" /v SCRNSAVE.EXE /t REG_SZ /d C:\Windows\system32\scrnsave.scr /f
 #Password protect the screen saver enabled
-REGA DD "HKLM:\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v ScreenSaverIsSecure /t REG_SZ /d 1 /f
+REG ADD "HKLM:\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v ScreenSaverIsSecure /t REG_SZ /d 1 /f
 #Prevent changing the screen saver enabled
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v NoDispScrSavPage \t REG_DWORD /d 1 /f
 #Enable Bitlocker
