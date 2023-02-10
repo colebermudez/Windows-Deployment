@@ -31,9 +31,8 @@ REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdmi
 Write-Host -ForegroundColor Green "This will error out. This is expected. The action takes place as expected."
 REG DELETE "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword /f
 
-
-# Run WindowsSetup2_0-WIP
-iex -Command "C:\Support\Scripts\Windows-Setup.ps1"
+# Run WindowsSetup
+iex -Command "C:\Support\Scripts\WindowsSetup.ps1"
 
 # Removes install directories except logs
 Remove-Item -Path C:\\Support\\Scripts -Recurse -Verbose
