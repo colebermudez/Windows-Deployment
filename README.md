@@ -138,25 +138,33 @@ The following is executed:
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_10.png?raw=true" />
 5. Don't import a provisioning package, just click 'Finish'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11.png?raw=true" />
-6. In the left pane, expand 'Runtime settings', expand 'ProvisioningCommands', and 'PrimaryContext', highlight 'Command'.
+6. In the left pane, expand 'Runtime settings', expand 'Accounts', expand 'Users', an add user such as 'Admin'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-1.png?raw=true" />
+7. Expand 'UserName: admin' and add a password under 'Password'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-2.png?raw=true" />
+8. Under 'UserGroup' add the user to the Administrators group. **THIS STEP IS VITAL TO GET THE REST TO WORK PROPERLY**.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-3.png?raw=true" />
+9. Colappse 'Accounts' in the left pane and expand 'OOBE'. Under 'OOBE', set the 'HideOobe' option to 'TRUE'.
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-4.png?raw=true" />
+10. In the left pane, collapse 'OOBE' and expand 'ProvisioningCommands', and 'PrimaryContext', highlight 'Command'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_12.png?raw=true" />
-7. In the middle pane, enter a name for your command, click 'Add', notice you have a new command in the list.
+11. In the middle pane, enter a name for your command, click 'Add', notice you have a new command in the list.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_13.png?raw=true" />
-8. Back in the left pane, you'll have some new options under Install (or your command name). We're only concerned about 'CommandFile' and 'CommandLine'. Browse for and select your iteration of the 'install.ps1' file. Then enter `PowerShell -ExecutionPolicy Bypass -File install.ps1` into the 'CommandLine' selection. This is the command you would use to run the file from PowerShell.
+12. Back in the left pane, you'll have some new options under Install (or your command name). We're only concerned about 'CommandFile' and 'CommandLine'. Browse for and select your iteration of the 'install.ps1' file. Then enter `PowerShell -ExecutionPolicy Bypass -File install.ps1` into the 'CommandLine' selection. This is the command you would use to run the file from PowerShell.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/2023-02-07 14_58_25-Windows Configuration Designer.png?raw=true" />
-9. At the top right, select 'Export', and 'Provisioning Package'.
+13. At the top right, select 'Export', and 'Provisioning Package'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_15.png?raw=true" />
-10. Choose a name and click 'Next'. If you ever re-build your ppkg (provisoning package) the minor number in the version will iterate automatically.
+14. Choose a name and click 'Next'. If you ever re-build your ppkg (provisoning package) the minor number in the version will iterate automatically.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_16.png?raw=true" />
-11. You can encrypt the package with a password or sign it with a certificate if you have one. I don't use either of these options so that's up to you.
+15. You can encrypt the package with a password or sign it with a certificate if you have one. I don't use either of these options so that's up to you.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_17.png?raw=true" />
-12. Select a folder to save the package if you want to export it somewhere else.
+16. Select a folder to save the package if you want to export it somewhere else.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_18.png?raw=true" />
-13. Select 'Build' after reviewing your settings
+17. Select 'Build' after reviewing your settings
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_19.png?raw=true" />
-14. DON'T CLICK FINISH. Click the path in the 'Output Location'. This will open your File Explorer.
+18. DON'T CLICK FINISH. Click the path in the 'Output Location'. This will open your File Explorer.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_20.png?raw=true" />
-15. Insert a blank USB device into your computer. Copy the <PPKGNAME>.cat and <PPKGNAME>.ppkg to the usb.
+19. Insert a blank USB device into your computer. Copy the <PPKGNAME>.cat and <PPKGNAME>.ppkg to the usb.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_21.png?raw=true" />
    
 ### Using the PPKG during installation
