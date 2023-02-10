@@ -139,13 +139,13 @@ The following is executed:
 5. Don't import a provisioning package, just click 'Finish'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11.png?raw=true" />
 6. In the left pane, expand 'Runtime settings', expand 'Accounts', expand 'Users', an add user such as 'Admin'.
-<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-1.png?raw=true" />
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot%2011-1.png?raw=true" />
 7. Expand 'UserName: admin' and add a password under 'Password'.
-<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-2.png?raw=true" />
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot%2011-2.png?raw=true" />
 8. Under 'UserGroup' add the user to the Administrators group. **THIS STEP IS VITAL TO GET THE REST TO WORK PROPERLY**.
-<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-3.png?raw=true" />
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot%2011-3.png?raw=true" />
 9. Colappse 'Accounts' in the left pane and expand 'OOBE'. Under 'OOBE', set the 'HideOobe' option to 'TRUE'.
-<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_11-4.png?raw=true" />
+<img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot%2011-4.png?raw=true" />
 10. In the left pane, collapse 'OOBE' and expand 'ProvisioningCommands', and 'PrimaryContext', highlight 'Command'.
 <img src="https://github.com/colebermudez/Windows-Deployment/blob/main/PPKG%20Screenshots/Screenshot_12.png?raw=true" />
 11. In the middle pane, enter a name for your command, click 'Add', notice you have a new command in the list.
