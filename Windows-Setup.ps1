@@ -15,6 +15,9 @@ Changes By Cole Bermudez:
 -Added creation of CustLocAdmin with a unique password set by input
 -Added Reg key to lock to version 21H2
 -Added services that should be manually started to reduce startup time and improve performance and resource usage
+2/7/2023
+Changes By Cole Bermudez"
+-Commented 21H2 Registry key locks
 #>
 
 # Create a log file for debugging
@@ -182,9 +185,9 @@ Add-LocalGroupMember -Group "Administrators" -Member $UserName
 ##########Essential Tweaks##########
 
 #Set Reg key to lock to 21H2
-Write-Host -ForegroundColor Green "Locking Windows 11 Upgrade for Win10 Devices"
-REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /f /v TargetReleaseVersion /t Reg_DWORD /d 1
-REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /f /v TargetReleaseVersionInfo /t REG_SZ /d 21H2
+#Write-Host -ForegroundColor Green "Locking Windows 11 Upgrade for Win10 Devices"
+#REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /f /v TargetReleaseVersion /t Reg_DWORD /d 1
+#REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /f /v TargetReleaseVersionInfo /t REG_SZ /d 21H2
 
 Write-Host -ForegroundColor Green "Install Chocolatey to automate basic program installation"
 #install Chocolatey and other programs
