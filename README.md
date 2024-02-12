@@ -92,7 +92,7 @@ The following is executed:
 - Disables Maps updates
 - Disables Feedback
 - Disables Tailored Experiences
-- Disables Adbertising ID
+- Disables Advertising ID
 - Disables Error reporting
 - Disables Windows Update P2P
 - Disables Diagnostics Tracking
