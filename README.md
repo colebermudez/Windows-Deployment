@@ -68,7 +68,7 @@ The following is executed:
     * Password Complexity requriements must be met (Read the comment on this one at line 139)
     * Sets lockout threshold to 5 attemtps
     * Sets lockout counter to reset after 30 minutes. Lockout duration is also set to 30 minutes
-    * Enables teh screen saver with a timeout of 15 minutes
+    * Enables the screen saver with a timeout of 15 minutes
     * Sets Screen Saver to scrnsave.scr (blank screen)
     * Password protects Screen Saver
     * Prevents changing of Screen Saver
