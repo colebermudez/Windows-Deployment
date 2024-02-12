@@ -35,7 +35,7 @@ The following is executed:
 
 - Creates a Log file
 - Sleeps for 1 minute to let registry populate after login
-- Diables AutoLogon
+- Disables AutoLogon
 - Removes stored credentials
 - Runs Windows-Setup
 - Prints a message that the window will close
@@ -57,8 +57,8 @@ The following is executed:
 - System Restore is enabled and a restore point is created
 - Power Options are set and a Time Zone is set as well
 - .NET Framework is enabled
-- LLMNR is disableed
-- NBT-NS is disabled
+- LLMNR is Disabled
+- NBT-NS is Disabled
 - SMB signing as 'always' is set.
 - Group Policy is edited to include:
     * Password History of 10
@@ -85,12 +85,12 @@ The following is executed:
 - Enables RDP
 - Runs O&O Shutup with a custom CFG file
 - Disables Telemetry
-- Diables Wi-Fi Sense
-- Diables Application Suggestions
+- Disables Wi-Fi Sense
+- Disables Application Suggestions
 - Disables Comsumer Features (Ads)
 - Disables Location Tracking
 - Disables Maps updates
-- Diables Feedback
+- Disables Feedback
 - Disables Tailored Experiences
 - Disables Adbertising ID
 - Disables Error reporting
